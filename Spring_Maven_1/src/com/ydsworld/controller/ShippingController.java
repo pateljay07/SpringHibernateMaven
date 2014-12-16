@@ -12,7 +12,7 @@ public class ShippingController {
 	public ModelAndView orders() {
  
 		String message = "<br><div align='center'>"
-				+ "<h3>**********Shipping Order List</h3>This message is comming from CrunchifyHelloWorld.java **********<br><br>";
+				+ "<h3>**********Shipping Order List</h3> <br><br>";
 		return new ModelAndView("orders", "message", message);
 	}
 	

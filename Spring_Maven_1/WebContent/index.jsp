@@ -7,7 +7,7 @@
 	<br>
 	<div align='center'>
 		<h2>
-			Hey You..!! This is your 1st Spring MCV Tutorial..<br> <br>
+			PH Plus Version 1.0<br> <br>
 		</h2>
 		<h3>
 			<a href="welcome.html">Click here to See Welcome Message... </a>(to
