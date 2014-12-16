@@ -11,7 +11,7 @@ public class HomeController {
 	public ModelAndView helloWorld() {
  
 		String message = "<br><div align='center'>"
-				+ "<h3>********** Hello World, Spring MVC Tutorial</h3>This message is comming from CrunchifyHelloWorld.java **********<br><br>";
+				+ "<h3>********** Hello World, Spring MVC Tutorial</h3><br>";
 		return new ModelAndView("welcome", "message", message);
 	}
 	
