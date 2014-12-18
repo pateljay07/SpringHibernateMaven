@@ -11,7 +11,6 @@ public class Order {
 	@Id
     @GeneratedValue
     private Long orderNo;
- 
     private String name;
 
 	public Long getOrderNo() {

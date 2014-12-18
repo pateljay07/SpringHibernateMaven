@@ -24,6 +24,7 @@ public class ShippingController {
 		SessionFactory factory;
 		Transaction tr;
 		String str="";
+		List results = null;
 		
 		try {
 			factory=new Configuration().configure().buildSessionFactory();
@@ -35,7 +36,7 @@ public class ShippingController {
 			Query query = session.createQuery("From Employee");
 			
 			
-			List results = query.list();
+			 results = query.list();
 			
 			Iterator<Employee> itr=results.iterator();
 			while(itr.hasNext())
@@ -54,8 +55,7 @@ public class ShippingController {
 		}
 		finally{
 			//session.flush();
-			//session.close();
-			
+			//session.close();		
 		}
 		
 		
@@ -63,7 +63,7 @@ public class ShippingController {
 				+ "<h3>**********Shipping Order List</h3> <br><br>";
 		message = message + str;
 		
-		return new ModelAndView("orders", "message", message);
+		return new ModelAndView("orders", "results", results);
 		
 		
 	}
