@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import com.ydsworld.model.Employee;
 import com.ydsworld.model.Order;
 import com.ydsworld.util.HibernateUtil;
 
@@ -27,33 +28,29 @@ public class OrderDAOImpl implements OrderDAO{
 		Session session=null;
 		SessionFactory factory;
 		Transaction tr;
-		List<Order> resultList = null;
+		List results = null;
 		
 		try {
-			 session = HibernateUtil.getSessionFactory().openSession();
-			  
-	        session.beginTransaction();
-	
-	 
-	        Query q = session.createQuery("From Order");
-	                 
-	        resultList = q.list();
-	        
-	     /*   System.out.println("num of employess:" + resultList.size());
-	        for (Employee next : resultList) {
-	            System.out.println("next employee: " + next);
-	        }*/
-	        
+			factory=new Configuration().configure().buildSessionFactory();
+			session=factory.openSession();
+			tr=session.beginTransaction();
 			
-		} catch (HibernateException e) {
+			Query query = session.createQuery("From Order");
+			
+			results =  query.list();
+			
+		} 
+		catch (HibernateException e) {
 			System.out.println("Error  : Data not present...!!!");
 			e.printStackTrace();
-		} finally {
-		//	session.flush();
-			session.close();
+		}
+		finally{
+			session.flush();
+			session.close();		
 		}
 		
-		return resultList;
+		
+		return results;
 		
 		
 	}

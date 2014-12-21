@@ -11,8 +11,6 @@
 <body>
 <%-- ${message} --%>
 
-<c:forEach var="team" items="${results}">
-
 <table border="1px" cellpadding="0" cellspacing="0">
 <thead>
 <tr>
@@ -20,18 +18,19 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-	<td>${team.id}</td>
-	<td>${team.name}</td>
-	<td>${team.sal}</td>
-	<td>
-	<a href="${pageContext.request.contextPath}/team/edit/${team.id}.html">Edit</a><br>
-	<a href="${pageContext.request.contextPath}/team/delete/${team.id}.html">Delete</a><br>
-	</td>
-</tr>
 
+<c:forEach var="team" items="${results}">
+	<tr>
+		<td>${team.orderNo}</td>
+		<td>${team.name}</td>
+		<td>
+		<a href="${pageContext.request.contextPath}/team/edit/${team.orderNo}.html">Edit</a><br>
+		<a href="${pageContext.request.contextPath}/team/delete/${team.orderNo}.html">Delete</a><br>
+		</td>
+	</tr>
+</c:forEach>
 </tbody>
 </table>
-</c:forEach>
+
 </body>
 </html>

@@ -1,23 +1,16 @@
 package com.ydsworld.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="ph_order")
 public class Order {
-	@Id
-    @GeneratedValue
-    private Long orderNo;
+	
+    private int orderNo;
     private String name;
 
-	public Long getOrderNo() {
+	public int getOrderNo() {
 		return orderNo;
 	}
 
-	public void setOrderNo(Long orderNo) {
+	public void setOrderNo(int orderNo) {
 		this.orderNo = orderNo;
 	}
 

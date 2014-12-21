@@ -10,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ydsworld.dao.OrderDAOImpl;
 import com.ydsworld.model.Employee;
+import com.ydsworld.model.Order;
 
 @Controller
 @RequestMapping("/shipping")
@@ -20,50 +22,13 @@ public class ShippingController {
 	@RequestMapping("/orders")
 	public ModelAndView orders() {
 		
-		Session session=null;
-		SessionFactory factory;
-		Transaction tr;
-		String str="";
-		List results = null;
+		OrderDAOImpl ord = new OrderDAOImpl();
 		
-		try {
-			factory=new Configuration().configure().buildSessionFactory();
-			session=factory.openSession();
-			tr=session.beginTransaction();
-			
-			
-			// by using query we can use class name i.e Employee class which is Pojo class
-			Query query = session.createQuery("From Employee");
-			
-			
-			 results = query.list();
-			
-			Iterator<Employee> itr=results.iterator();
-			while(itr.hasNext())
-			{
-			Employee e1=itr.next();
-// by using this we are fetching one by one and store in Employee Object 
-			//System.out.println(e1);
-			  str = str + e1;
-			}
-			
-			//sb.append(" Result" );
-		} 
-		catch (HibernateException e) {
-			System.out.println("Error  : Data not present...!!!");
-			e.printStackTrace();
-		}
-		finally{
-			//session.flush();
-			//session.close();		
-		}
+		List<Order> list = new  ArrayList<Order>();
 		
-		
-		String message = "<br><div align='center'>"
-				+ "<h3>**********Shipping Order List</h3> <br><br>";
-		message = message + str;
-		
-		return new ModelAndView("orders", "results", results);
+		list = ord.list();
+
+		return new ModelAndView("orders", "results", list);
 		
 		
 	}

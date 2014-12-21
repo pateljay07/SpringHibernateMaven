@@ -35,6 +35,8 @@
 	</property>
  		
  		<mapping resource="EmployeeMap.hbm.xml"/>
+ 		<mapping resource="OrderMap.hbm.xml"/>
+ 		
     </session-factory>
 
 </hibernate-configuration>
