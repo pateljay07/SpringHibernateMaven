@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.ydsworld.model">
+
+	<class name="Order" table="ph_order">
+
+		<id name="orderNo" type="int" column="orderno">
+		<generator class="assigned" />
+		</id>
+
+		<property name="name">
+			<column name="name" length="10"></column>
+		</property>
+		
+
+	</class>
+</hibernate-mapping>
