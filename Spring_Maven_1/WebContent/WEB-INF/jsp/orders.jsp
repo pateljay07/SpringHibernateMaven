@@ -18,7 +18,7 @@
 </tr>
 </thead>
 <tbody>
-
+<!-- something -->
 <c:forEach var="team" items="${results}">
 	<tr>
 		<td>${team.orderNo}</td>
